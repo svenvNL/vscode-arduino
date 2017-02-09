@@ -2,7 +2,7 @@ const vscode = require('vscode');
 const arduino = require('./lib/arduino');
 const settings = require('./lib/settings');
 
-exports.activate = context => {
+exports.activate = (context) => {
   const setCOMPort = vscode.commands.registerCommand('arduino.setCOMPort', () => {
     vscode.window.showInputBox().then((outcome) => {
       if (outcome !== undefined) {
