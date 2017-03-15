@@ -1,48 +1,61 @@
 {
-  "name": "vscode-arduino",
-  "displayName": "vscode-arduino",
-  "description": "Arduino tooling for VS Code",
-  "version": "0.0.1",
-  "publisher": "svenvdvlist",
-  "engines": {
-    "vscode": "^1.9.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onCommand:arduino.compile",
-    "onCommand:arduino.upload",
-    "onCommand:arduino.setCOMPort"
-  ],
-  "main": "./extension",
-  "contributes": {
-    "commands": [
-      {
-        "command": "arduino.compile",
-        "title": "Arduino: Verify / Compile"
-      },
-      {
-        "command": "arduino.upload",
-        "title": "Arduino: Upload"
-      },
-      {
-        "command": "arduino.setCOMPort",
-        "title": "Arduino: Set comport"
-      }
-    ]
-  },
-  "scripts": {
-    "postinstall": "node ./node_modules/vscode/bin/install"
-  },
-  "devDependencies": {
-    "typescript": "^2.1.6",
-    "vscode": "^1.0.3",
-    "eslint": "^3.15.0",
-    "eslint-config-airbnb": "^14.1.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.9.0",
-    "@types/node": "^7.0.5"
-  }
+    "name": "vscode-arduino",
+    "displayName": "Arduino",
+    "description": "Arduino tooling for VS Code",
+    "version": "0.0.1",
+    "publisher": "svenvdvlist",
+    "engines": {
+        "vscode": "^1.9.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:arduino.compile",
+        "onCommand:arduino.upload",
+        "onCommand:arduino.setCOMPort"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "Arduino configuration",
+            "properties": {
+                "arduino.buildPath": {
+                    "type": [
+                        "string"
+                    ],
+                    "default": null,
+                    "description": "Specify where the compiler builds a binairy"
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "arduino.compile",
+                "title": "Arduino: Verify / Compile"
+            },
+            {
+                "command": "arduino.upload",
+                "title": "Arduino: Upload"
+            },
+            {
+                "command": "arduino.setCOMPort",
+                "title": "Arduino: Set comport"
+            }
+        ]
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "devDependencies": {
+        "typescript": "^2.1.6",
+        "vscode": "^1.0.3",
+        "eslint": "^3.15.0",
+        "eslint-config-airbnb": "^14.1.0",
+        "eslint-plugin-import": "^2.2.0",
+        "eslint-plugin-jsx-a11y": "^4.0.0",
+        "eslint-plugin-react": "^6.9.0",
+        "@types/node": "^7.0.5"
+    }
 }

@@ -1,12 +1,15 @@
 const vscode = require('vscode');
 const arduino = require('./lib/arduino');
-const settings = require('./lib/settings');
+
+const vsconfig = vscode.workspace.getConfiguration('Arduino');
 
 exports.activate = (context) => {
   const setCOMPort = vscode.commands.registerCommand('arduino.setCOMPort', () => {
+    console.log(vsconfig.get('buildPath'));
+
     vscode.window.showInputBox().then((outcome) => {
       if (outcome !== undefined) {
-        settings.comport = outcome;
+        vsconfig.update('buildPath', outcome, true);
       }
     });
   });
