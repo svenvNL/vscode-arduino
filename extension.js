@@ -5,8 +5,6 @@ const vsconfig = vscode.workspace.getConfiguration('Arduino');
 
 exports.activate = (context) => {
   const setCOMPort = vscode.commands.registerCommand('arduino.setCOMPort', () => {
-    console.log(vsconfig.get('buildPath'));
-
     vscode.window.showInputBox().then((outcome) => {
       if (outcome !== undefined) {
         vsconfig.update('buildPath', outcome, true);
@@ -39,5 +37,4 @@ exports.activate = (context) => {
   context.subscriptions.push([setCOMPort, compile, upload]);
 };
 
-exports.deactivate = function () {
-};
+exports.deactivate = () => {};
